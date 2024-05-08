@@ -7,7 +7,6 @@ This repo is heavily based on https://github.com/metavoiceio/metavoice-src
 3. We use wespeaker to evaluate the similarity between the generated audio and the original audio.
 
 **Directory Structure**
-```bash
 |- assets/
 |- data	/	audio files and captions
 |- datasets/	path to audio files and captions in cs
