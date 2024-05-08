@@ -1,4 +1,6 @@
 # MetaVoice-LoRA
+
+This repo is heavily based on https://github.com/metavoiceio/metavoice-src
 ## What We Do
 1. We add LoRA to the existing finetuning pipeline and do some experiments to verify the effectiveness of LoRA.
 2. We use whisperx to preprocess the audio files to generate the training data.
