@@ -6,6 +6,27 @@ This repo is heavily based on https://github.com/metavoiceio/metavoice-src
 2. We use whisperx to preprocess the audio files to generate the training data.
 3. We use wespeaker to evaluate the similarity between the generated audio and the original audio.
 
+**Directory Structure**
+```bash
+|- assets/
+|- data	/	audio files and captions
+|- datasets/	path to audio files and captions in cs
+|- fam/
+	|- llm/
+		|- adapters/		flattened interleaved decoding
+		|- config/			finetune config
+		|- layers/			layer and block definition
+		|- loaders/			process audio and text data
+		|- mixins/			mixin class for inference
+		|- preprocessing/	pad and interleave tokens
+	|- quantiser/	speaker information embedding
+	|- telemetry	/	monitor
+|- tests/	e2e testing
+
+|- eval.py	compare scores
+|- makeDataset.py	generate data with  whisperx
+```
+
 ## Installation
 
 **Pre-requisites:**
