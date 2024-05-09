@@ -219,8 +219,13 @@ class Attention(nn.Module):
 
         k = k.repeat_interleave(self.n_head // self.n_local_heads, dim=1)
         v = v.repeat_interleave(self.n_head // self.n_local_heads, dim=1)
+        if q.dtype != k.dtype:
+            q = q.to(k.dtype)
+        print(f"q dtype: {q.dtype}")
+        print(f"k dtype: {k.dtype}")
+        print(f"v dtype: {v.dtype}")
         y = F.scaled_dot_product_attention(q, k, v, attn_mask=mask, dropout_p=0.0)
-
+        
         y = y.transpose(1, 2).contiguous().view(bsz, seqlen, self.dim)
 
         y = self.wo(y)
